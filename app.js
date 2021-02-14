@@ -130,6 +130,18 @@ sliderBtn.addEventListener('click', function () {
     }
 });
 
+
+
+// The code for create Slider Enter Button
+document.getElementById("duration")
+.addEventListener("keypress", function(event) {
+if (event.key === 'Enter'){
+  document.getElementById("create-slider").click();
+}
+});
+
+
+
 // The Code is for spinner
 const toggleSpinner = (show) =>{
   const spinner = document.getElementById('loading-spinner');
