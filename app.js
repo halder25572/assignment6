@@ -66,7 +66,8 @@ const createSlider = () => {
   document.querySelector('.main').style.display = 'block';
   // hide image aria
   imagesArea.style.display = 'none';
-  const duration = document.getElementById('duration').value || 1000;
+  const temp = document.getElementById('duration').value||1000;
+  const duration= Math.abs(temp);
   sliders.forEach(slide => {
     let item = document.createElement('div')
     item.className = "slider-item";
@@ -75,9 +76,10 @@ const createSlider = () => {
     alt="">`;
     sliderContainer.appendChild(item);
   })
+
   changeSlide(0)
   timer = setInterval(function () {
-    slideIndex--;
+    slideIndex++;
     changeSlide(slideIndex);
   }, duration);
 }
@@ -96,7 +98,7 @@ const changeSlide = (index) => {
     index = slideIndex;
   };
 
-  if (index >= items.length) {
+  if (index > items.length) {
     index = 0;
     slideIndex = 0;
   }
@@ -105,7 +107,7 @@ const changeSlide = (index) => {
     item.style.display = "none"
   })
 
-  items[index].style.display = "block"
+  items[index].style.display = "block";
 }
 
 searchBtn.addEventListener('click', function () {
